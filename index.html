@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="top-section">
+            <img id="image-container" src="a.png">
+
+            <div class="nav">
+                <img onclick="change_img(this)" src="a.png">
+                <img onclick="change_img(this)" src="b.png">
+                <img onclick="change_img(this)" src="c.png">
+            </div>
+            <div class="price">$25</div>
+        </div>
+
+        <div class="product-info">
+            <div class="name">Medical Surgical Mask</div>
+
+            <div class="dis">Le Gear ProShield L95 Reusable </div>
+            <button class="button">
+                <span>Add to cart</span>
+                <div class="cart">
+                    <svg viewBox="0 0 36 26">
+                        <polyline points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"></polyline>
+                        <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+    <script>
+        var container = document.getElementById("image-container");
+        function change_img(image) {
+            container.src = image.src;
+        }
+        document.querySelectorAll('.button').forEach(button => button.addEventListener('click', e => {
+            if (!button.classList.contains('loading')) {
+                button.classList.add('loading');
+                setTimeout(() => button.classList.remove('loading'), 3700);
+            }
+            e.preventDefault();
+        }));
+    </script>
+</body>
+
+</html>
